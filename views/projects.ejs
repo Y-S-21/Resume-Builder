@@ -1,0 +1,190 @@
+<%- include("partials/header") -%>
+
+<div  class="heading">
+    <h1>Projects, Internships and Implant Training</h1>
+    </div>
+    <div class="main">
+
+        <form action="/projects" method="post">
+            
+                <!-- Projects -->
+
+                <h2 style="margin: 15px 3px;">Projects</h2>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="inputFormRow">
+                            <div class="input-group mb-3">
+                                <table>
+                                    <tr>
+                                        <td><label style="padding-right: 50px;" for="projTitle">Project title:</label></td>
+                                        <td><input size="50" style="padding-right: 5px;" type="text" name="projTitle[]" class="inputPI form-control" autocomplete="off" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="duration">Duration:</label></td>
+                                        <td><input style="padding-right: 5px;" type="text" name="duration[]" class="inputPI form-control" autocomplete="off" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="stack">Stack:</label></td>
+                                        <td><input style="padding-right: 5px;" type="text" name="stack[]" class="inputPI form-control" autocomplete="off" required></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="objective">Objective:</label></td>
+                                        <td><textarea id="" class="inputPI form-control" name="objective[]" rows="3" cols="40" required></textarea></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="githubLink">Github Link:</label></td>
+                                        <td><input style="padding-right: 5px;" type="text" name="githubLink[]" class="inputPI form-control" autocomplete="off" required></td>
+                                        <td>
+                                            <div class="input-group-append">
+                                                <button id="removeRow" type="button" class="removeButton btn btn-danger">Remove</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+            
+                        <div id="newRow"></div>
+                        <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+                    </div>
+                </div>
+
+                <!-- Internships -->
+
+                <h2 style="margin: 15px 3px;">Internships</h2>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="inputFormRow1">
+                            <div class="input-group mb-3"> 
+                                <table>
+                                    <tr><td><label style="padding-right: 50px;" for="">Name of the Company:</label></td><td><input size="50" class="inputPI  form-control" type="text" name="internCompany[]" id="" autocomplete="off" required></td></tr>
+                                    <tr><td><label style="padding-right: 50px;" for="">Duration:</label></td><td><input size="50" class="inputPI  form-control" type="text" name="internDuration[]" id="" autocomplete="off" required></td></tr>
+                                    <tr><td><label style="padding-right: 50px;" for="">Objective:</label></td><td><textarea rows="3" cols="40" class="inputPI  form-control" id="" class="input" name="internObjective[]" rows="3" cols="60" autocomplete="off" required></textarea></td></tr>
+                                </table>
+                                <div class="input-group-append">                
+                                    <button style="position: relative;top: 11rem;" id="removeRow1" type="button" class="removeButton btn btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="newRow1"></div>
+                        <button id="addRow1" type="button" class="btn btn-info">Add Row</button>
+                    </div>
+                </div>
+
+                <!-- Inplant -->
+
+                <h2 style="margin: 15px 3px;">Inplant Training</h2>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div id="inputFormRow2">
+                            <div class="input-group mb-3"> 
+                                <table>
+                                    <tr><td><label style="padding-right: 50px;" for="">Name of the Company:</label></td><td><input size="50" class="inputPI form-control" type="text" name="inplantCompany[]" id="" autocomplete="off" required></td></tr>
+                                    <tr><td><label style="padding-right: 50px;" for="">Duration:</label></td><td><input size="50" class="inputPI form-control" type="text" name="inplantDuration[]" id="" autocomplete="off" required></td></tr>
+                                    <tr><td><label style="padding-right: 50px;" for="">Objective:</label></td><td><textarea rows="3" cols="40" class="inputPI form-control" id="" class="input" name="inplantObjective[]" rows="3" cols="60" autocomplete="off" required></textarea></td></tr>
+                                </table>
+                                <div class="input-group-append">                
+                                    <button style="position: relative;top: 11rem;" id="removeRow2" type="button" class="removeButton btn btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="newRow2"></div>
+                        <button id="addRow2" type="button" class="btn btn-info">Add Row</button>
+                    </div>
+                </div>
+
+            <div style="margin-top: 15px;">
+                <button type="submit" class="button">submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+
+        // add row
+        $("#addRow").click(function () {
+            var html = '';
+            html += '<div id="inputFormRow">';
+            html += '<div class="input-group mb-3">';
+            html += '<table>';
+            html += '<tr>';
+            html += '<td><label style="padding-right: 50px;" for="projTitle">Project title:</label></td>';
+            html += '<td><input size="50" style="padding-right: 5px;" type="text" name="projTitle[]" class="inputPI form-control" autocomplete="off" required></td>';
+            html += '</tr>';
+            html += '<tr>';
+            html += '<td><label for="duration">Duration:</label></td>';
+            html += '<td><input style="padding-right: 5px;" type="text" name="duration[]" class="inputPI form-control" autocomplete="off" required></td>';
+            html += '</tr>';
+            html += '<tr>';
+            html += '<td><label for="stack">Stack:</label></td>';
+            html += '<td><input style="padding-right: 5px;" type="text" name="stack[]" class="inputPI form-control" autocomplete="off" required></td>';
+            html += '</tr>';
+            html += '<tr>';
+            html += '<td><label for="objective">Objective:</label></td>';
+            html += '<td><textarea id="" class="inputPI form-control" name="objective[]" rows="3" cols="40" autocomplete="off" required></textarea></td>';
+            html += '</tr>';
+            html += '<tr>';
+            html += '<td><label for="githubLink">Github Link:</label></td>';
+            html += '<td><input style="padding-right: 5px;" type="text" name="githubLink[]" class="inputPI form-control" autocomplete="off" required></td>';
+            html += '<td>';
+            html += '<div class="input-group-append">';
+            html += '<button id="removeRow" type="button" class="removeButton btn btn-danger">Remove</button>';
+            html += '</div>';
+            html += '</td>';
+            html += '</tr>';
+            html += '</table>';
+            html += '</div>';
+
+            $('#newRow').append(html);
+        });
+
+        // remove row
+        $(document).on('click', '#removeRow', function () {
+            $(this).closest('#inputFormRow').remove();
+        });
+
+        // add row
+    $("#addRow1").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow1">';
+        html += '<div class="input-group mb-3">';
+        html += '<table>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Name of the Company:</label></td><td><input size="50" class="inputPI form-control" type="text" name="internCompany[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Duration:</label></td><td><input size="50" class="inputPI form-control" type="text" name="internDuration[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Objective:</label></td><td><textarea rows="3" cols="40" class="inputPI form-control" id="" class="input" name="internObjective[]" rows="3" cols="60" autocomplete="off" required></textarea></td></tr>';
+        html += '</table>';
+        html += '<div class="input-group-append">';
+        html += '<button style="position: relative;top: 11rem;" id="removeRow1" type="button" class="removeButton btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow1').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow1', function () {
+        $(this).closest('#inputFormRow1').remove();
+    });
+
+    // add row
+    $("#addRow2").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow2">';
+        html += '<div class="input-group mb-3">';
+        html += '<table>';
+        html += '<tr><td><div>Implant Training</div></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Name of the Company:</label></td><td><input size="50" class="inputPI form-control" type="text" name="inplantCompany[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Duration:</label></td><td><input size="50" class="inputPI form-control" type="text" name="inplantDuration[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Objective:</label></td><td><textarea rows="3" cols="40" class="inputPI form-control" id="" class="input" name="inplantObjective[]" rows="3" cols="60" autocomplete="off" required></textarea></td></tr>';
+        html += '</table>';
+        html += '<div class="input-group-append">';
+        html += '<button style="position: relative;top: 11rem;" id="removeRow2" type="button" class="removeButton btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow2').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow2', function () {
+        $(this).closest('#inputFormRow2').remove();
+    });
+    </script>
+
+<%- include("partials/footer") -%>

@@ -1,0 +1,26 @@
+<%- include("partials/header") -%>
+
+    <nav class="navbar fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" style="color: black; font-weight: 500;">Resume Builder</a>
+          <form class="d-flex" action="/logout" method="get">
+            <button class="btn btn-outline-success buttonn" type="submit">Logout</button>
+          </form>
+        </div>
+    </nav>
+
+<div class="container-fluid text-center">
+    <div class="bg-white fetch">
+        <h2>Fetch Student Resume</h2>
+        <h4><%= error  %> </h4>
+        <form action="/facultyDashboard" method="post">
+            <label for="">Enter rollno</label>
+            <input class="input input2" type="number" name="username" id="" autocomplete="off" required>
+            <div>
+                <button class="button" type="submit">Fetch</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- <%- include("partials/footer") -%> -->

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/studentDachboard.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>Resume Builder</title>
+</head>
+<body>
+
+    <nav class="navbar fixed-top">
+        <span class="container-fluid">
+          <a class="navbar-brand" style="color: black; font-weight: 500;">Resume Builder</a>
+          <form class="d-flex" action="/logout" method="get">
+            <button class="btn btn-outline-success buttonn" type="submit">Logout</button>
+          </form>
+        </span>
+    </nav>
+
+        <div class="container-fluid" style="align-content: left !important;">
+            <div class="form-signin">
+                <div class="row justify-content-md-center">
+                    <div class="col-md-auto">
+                        <div>
+                            <h3><a onclick="create()">Create Resume</a></h3>
+                        </div>
+                        <div class="form-floating">
+                            <h3><a href="/resume">Generate Resume</a></h3>
+                        </div>
+                        <!-- <div class="form-floating">
+                            <h3><a href="#" onclick="edit()">Edit Resume</a></h3>
+                        </div>
+                        <div class="form-floating">
+                            <h3><a href="/fetchResume">View Resume</a></h3>
+                        </div> -->
+                    </div>
+                    <div class="col-md-auto">
+                        <div id="divCheckbox" style="visibility: collapse;">
+                            <div>
+                                <h4><a href="/personalDetails">Personal Details</a></h4>
+                            </div>
+                            <div>
+                                <h4><a href="/academicCredentials">Academic Credentials</a></h4>
+                            </div>
+                            <div>
+                                <h4><a href="/projects">Projects</a></h4>
+                            </div>
+                            <div>
+                                <h4><a href="/extraInfo">Other Informtion</a></h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-auto">
+                        <div id="divCheckbox2" style="visibility: collapse;">
+                            <div>
+                                <h4><a href="/personalDetails">Personal Details</a></h4>
+                                <input type="radio" name="editPlease" id="" value="true" checked style="visibility: hidden;">
+                            </div>
+                            <div>
+                                <h4><a href="/academicCredentials">Academic Credentials</a></h4>
+                            </div>
+                            <div>
+                                <h4><a href="/projects">Projects</a></h4>
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <script>
+            function create() {
+                document.getElementById('divCheckbox').style = 'visibility: none';
+                return;
+            }
+            function edit() {
+                document.getElementById('divCheckbox2').style = 'visibility: none';
+                return;
+            }
+        </script>
+</body>
+</html>

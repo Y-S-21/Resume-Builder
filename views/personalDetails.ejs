@@ -1,0 +1,86 @@
+<%- include("partials/header") -%> 
+
+<div  class="heading">
+    <h1>Personal Details</h1>
+</div>
+
+<div class="main">
+    <form action="/personalDetails" method="post" enctype="multipart/form-data">
+        <table>
+        <tr>
+            <td><label for="fname">First name</label></td>
+            <td><input size="25" type="text" name="fname" class="input form-control" id="" autocomplete="off" required></td>
+            <td><label style="margin:0 20px;" for="lname">Last name</label></td>
+            <td><input size="25" type="text" name="lname" class="input form-control" id="" autocomplete="off" required  ></td>
+        </tr>
+        <tr>
+            <td><label for="phno">Phone number</label></td>
+            <td><input style="width: 15.3rem;" type="number" name="phno" class="input form-control" id="" ></td>
+        </tr>
+        <tr>
+            <td><label for="email">Email address</label></td>
+            <td><input size="25" type="text" name="email" class="input form-control" id="" autocomplete="off" required></td>
+            <td><label style="margin:0 20px;" for="email2">Work Email address</label></td>
+            <td><input size="25" type="text" name="email2" class="input form-control" id="" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="linkedin">LinkedIn Profile</label></td>
+            <td><input size="25" type="text" name="ln" class="input form-control" id=""  autocomplete="off" required></td>
+            <td><label style="margin-left: 20px;" for="github">Github profile</label></td>
+            <td><input size="25" type="text" name="github" class="input form-control" id=""  autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="dob">Date of Birth</label></td>
+            <td><input style="width: 15.3rem;" type="date" name="dob" class="input form-control" id=""  autocomplete="off" required></td>
+            <td><label style="margin-left: 20px;">Gender</label></td>
+            <td><input type="radio" name="gender" value="Male" id=""> Male&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" id="" value="Female">Female</td>
+        </tr>
+        <tr>
+            <td><label for="father">Father's name</label></td>
+            <td><input size="25" type="text" name="father" class="input form-control" id=""  autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="Lang"><h4 style="margin: 6px 3px;">Languages Known</h4></label></td>
+        </tr>
+        <tr>
+            <td><label for="langSpeak">Speak</label></td>
+            <td><input size="25" type="text" name="langSpeak" class="input form-control" id="" autocomplete="off" required></td>
+            <td><label style="margin-left: 20px;" for="langSR">Speak and Write</label></td>
+            <td><input size="25" type="text" name="langSR" class="input form-control" id="" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="nationality">Nationality</label></td>
+            <td><input size="25" type="text" name="nationality" class="input form-control" id="" autocomplete="off" required></td>
+            <td><label style="margin-left: 20px;" for="marital">Passport Number</label></td>
+            <td><input size="25" type="text" name="passport" class="input form-control" id="" autocomplete="off" required></td>
+        </tr>
+        <tr>
+            <td><label for="mobility">Mobility</label></td>
+            <td><input size="25" type="text" name="mobility" class="input form-control" id=""  autocomplete="off" required></td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <td><label for="address">Address</label></td>
+            <td style="padding-left: 155px;"><textarea id="" class="input form-control" name="address" rows="4" cols="50"  autocomplete="off" required></textarea></td>
+        </tr>
+    </table>
+
+    <div style="position: absolute; right: -9rem; bottom: 8.5rem;">
+        <div class="row">
+            <div class="col-md auto"><label for="files" class="btn button" style="border: 1px solid #90ee90;">Select Image</label></div>
+            <div class="col-md auto"><input style="position: relative; top: 70px; right: 140px;" type="file" id="files" name="studImages" id="studImages"></div>
+        </div>
+        
+        
+    </div>
+
+    <div style="margin-top: 15px;">
+        <button id="hide" type="submit" class="button">Submit</button>
+        <!-- <a href="academicCredentials"><button type="button" class="button">Next</button></a> -->
+    </div>
+    </form>
+</div>
+
+<%- include("partials/footer") -%>

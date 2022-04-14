@@ -1,0 +1,105 @@
+body {
+    background-color: #E4E9FD;
+    background-image: -webkit-linear-gradient(65deg, #acd1af 50%, #EEEE9B 50%);
+    min-height: 1000px;
+    font-family: 'Ubuntu', sans-serif;
+  }
+
+.navbar{
+ background-color: #90ee90 !important;
+ /* padding-bottom: 0 !important; */
+}
+
+.buttonn{
+    background-color: #FFE61B !important;
+    color: black !important;
+    border-color: #FFB72B !important;
+}
+
+.buttonn:hover{
+    background-color: #FFB72B !important;
+}
+
+.custom{
+    margin-top: 13rem;
+}
+
+.cus-pad{
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.heading{
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.input{
+background-color: #fff;
+border: 2px solid #eaeaea;
+border-radius: 3px;
+line-height: 2;
+font-size: 16px;
+-webkit-appearance: none;
+}
+
+.input2{
+    margin: 5px;
+}
+
+.inputPI{
+    width: 100%;
+    background-color: #fff;
+    border: 2px solid #eaeaea;
+    border-radius: 3px;
+    line-height: 2;
+    font-size: 16px;
+    -webkit-appearance: none;
+}
+
+table, th, td {
+    padding: 7px;
+  }
+
+.tableAcademics{
+    padding: 4px;
+}
+
+.main{
+    width: 75%;
+    position: relative;
+    left: 10.5rem;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.button{
+    margin-top: 20px;
+    position: relative;
+    line-height: 2rem;
+    border-radius: 5px;
+    border-color: 1px solid #90EE90;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.325rem 2rem;
+    border-color:#90EE90;
+    
+}
+.button:hover{
+    background-color: #90EE90;
+}
+
+.removeButton{
+    position: relative;
+    left: 2rem;
+}
+
+.fetch{
+    width: 40%;
+    position: relative;
+    left: 23rem;
+    top: 17rem;
+    border-radius: 20px;
+    padding: 20px;
+}

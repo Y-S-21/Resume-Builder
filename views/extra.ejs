@@ -1,0 +1,199 @@
+<%- include("partials/header") -%>
+
+<div class="heading"><h1>Other Info</h1></div>
+
+<div class="main">
+    <form action="/extraInfo" method="post">
+
+        <!-- Career Objective -->
+        
+            <h2 style="margin: 15px 3px;">Career Objective</h2>
+        
+        <div style="display: inline-block; margin-left: 1rem;">
+            <textarea style="margin-left: 80px;" class="input form-control" id="" name="careerObj" rows="2" cols="70" autocomplete="off" required></textarea>
+        </div>
+        
+        <!-- Co - curicular Activities -->
+
+        <h2 style="margin: 15px 3px;">Co-Curricular activities</h2>
+    
+        <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="inputFormRow">
+                        <div class="input-group mb-3">
+                            <table>
+                                <tr><td><label style="padding-right: 50px;" for="">Name of the Event</label></td><td><input size="25" class="input form-control" type="text" name="coCurEvent[]" id="" autocomplete="off" required></td></tr>
+                                <tr><td><label style="padding-right: 50px;" for="">College Name</label></td><td><input size="25" class="input form-control" type="text" name="coCurClgName[]" id="" autocomplete="off" required></td></tr>
+                                <tr><td><label style="padding-right: 50px;" for="">Date</label></td><td><input style="width: 250px;" class="input form-control"  type="date" name="coCurDate[]" id="" autocomplete="off" required></td></tr>
+                                <tr><td><label style="padding-right: 50px;" for="">Topic</label></td><td><input size="25" class="input form-control" type="text" name="coCurTopic[]" id="" autocomplete="off" required></td></tr>
+                            </table>
+                            <div class="input-group-append">                
+                                <button style="position: relative;top: 10.1rem;" id="removeRow" type="button" class="removeButton btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="newRow"></div>
+                    <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- EXTRA CURRICULAR -->
+
+        <h2 style="margin: 15px 3px;">Extra-Curricular activities</h2>
+    
+        <div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="inputFormRow1">
+                        <div class="input-group mb-3">
+                            <table>
+                                <tr><td><label style="padding-right: 50px;" for="">Name of the Event</label></td><td><input size="25" class="input form-control" type="text" name="extraEvent[]" id="" autocomplete="off" required></td></tr>
+                                <tr><td><label style="padding-right: 50px;" for="">College Name</label></td><td><input size="25" class="input form-control" type="text" name="extraClgName[]" id="" autocomplete="off" required></td></tr>
+                                <tr><td><label style="padding-right: 50px;" for="">Date</label></td><td><input style="width: 250px;" class="input form-control"  type="date" name="extraDate[]" id="" autocomplete="off" required></td></tr>
+                                <tr><td><label style="padding-right: 50px;" for="">Topic</label></td><td><input size="25" class="input form-control" type="text" name="extraTopic[]" id="" autocomplete="off" required></td></tr>
+                            </table>
+                            <div class="input-group-append">                
+                                <button style="position: relative;top: 10.1rem;" id="removeRow1" type="button" class="removeButton btn btn-danger">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="newRow1"></div>
+                    <button id="addRow1" type="button" class="btn btn-info">Add Row</button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Key Strength -->
+
+        <h2 style="margin: 15px 3px;">Key Strength</h2>
+    
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="inputFormRow2">
+                    <div class="input-group mb-3">
+                        <ul>
+                            <li><input size="70" type="text" name="keyStrength[]" class="form-control input" autocomplete="off" required></li>
+                        </ul>
+                        <div class="input-group-append">                
+                            <button id="removeRow2" type="button" class="removeButton btn btn-danger">Remove</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <div id="newRow2"></div>
+                <button id="addRow2" type="button" class="btn btn-info">Add Row</button>
+            </div>
+        </div>
+
+        <h2 style="margin: 15px 3px;">Achievements</h2>
+    
+        <div class="row">
+            <div class="col-lg-12">
+                <div id="inputFormRow3">
+                    <div class="input-group mb-3">
+                        <ul>
+                            <li><input size="70" type="text" name="achievements[]" class="form-control input" autocomplete="off" required></li>
+                        </ul>
+                        <div class="input-group-append">                
+                            <button id="removeRow3" type="button" class="removeButton btn btn-danger">Remove</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="newRow3"></div>
+                <button id="addRow3" type="button" class="btn btn-info">Add Row</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 15px;">
+            <button type="submit" class="button">submit</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    // add row
+    $("#addRow").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow">';
+        html += '<div class="input-group mb-3">';
+        html += '<table>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Name of the Event</label></td><td><input size="25" class="input form-control" type="text" name="extraEvent[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">College Name</label></td><td><input size="25" class="input form-control" type="text" name="extraClgName[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Date</label></td><td><input style="width: 250px;" class="input form-control"  type="date" name="extraDate[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Topic</label></td><td><input size="25" class="input form-control" type="text" name="extraTopic[]" id="" autocomplete="off" required></td></tr>';
+        html += '</table>';
+        html += '<div class="input-group-append">';
+        html += '<button style="position: relative;top: 10.1rem;" id="removeRow" type="button" class="removeButton btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow', function () {
+        $(this).closest('#inputFormRow').remove();
+    });
+
+    // add row
+    $("#addRow1").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow1">';
+        html += '<div class="input-group mb-3">';
+        html += '<table>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Name of the Event</label></td><td><input size="25" class="input form-control" type="text" name="extraEvent[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">College Name</label></td><td><input size="25" class="input form-control" type="text" name="extraClgName[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Date</label></td><td><input style="width: 250px;" class="input form-control"  type="date" name="extraDate[]" id="" autocomplete="off" required></td></tr>';
+        html += '<tr><td><label style="padding-right: 50px;" for="">Topic</label></td><td><input size="25" class="input form-control" type="text" name="extraTopic[]" id="" autocomplete="off" required></td></tr>';
+        html += '</table>';
+        html += '<div class="input-group-append">';
+        html += '<button style="position: relative;top: 10.1rem;" id="removeRow1" type="button" class="removeButton btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow1').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow1', function () {
+        $(this).closest('#inputFormRow1').remove();
+    });
+
+     // add row
+     $("#addRow2").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow2">';
+        html += '<div class="input-group mb-3">';
+        html += '<ul>';
+        html += '<li><input size="70" type="text" name="keyStrength[]" class="form-control input" autocomplete="off" required></li>';
+        html += '</ul>';
+        html += '<div class="input-group-append">';
+        html += '<button id="removeRow2" type="button" class="removeButton btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow2').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow2', function () {
+        $(this).closest('#inputFormRow2').remove();
+    });
+
+     // add row
+     $("#addRow3").click(function () {
+        var html = '';
+        html += '<div id="inputFormRow3">';
+        html += '<div class="input-group mb-3">';
+        html += '<ul>';
+        html += '<li><input size="70" type="text" name="achievements[]" class="form-control input" autocomplete="off" required></li>';
+        html += '</ul>';
+        html += '<div class="input-group-append">';
+        html += '<button id="removeRow3" type="button" class="removeButton btn btn-danger">Remove</button>';
+        html += '</div>';
+        html += '</div>';
+        $('#newRow3').append(html);
+    });
+    // remove row
+    $(document).on('click', '#removeRow3', function () {
+        $(this).closest('#inputFormRow3').remove();
+    });
+</script>
+
+<%- include("partials/footer") -%>

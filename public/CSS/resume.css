@@ -1,0 +1,48 @@
+body{
+    font-size: 14.667px;
+}
+
+h3{
+    padding: 5px;
+    background-color: #DCDCDC !important;
+    border: 1px black solid;
+    font-size: 16px !important; 
+}
+
+table, th, td{
+    border: 1px black solid;
+    border-collapse: collapse;
+    margin-left: 20px;
+}
+
+table.noBorder,th.noBorder,td.noBorder{
+    border: none;
+    margin-left: 20px;
+}
+
+.textCenter{
+    text-align: center;
+    width: 100%;
+}
+
+p{
+    margin-left: 20px;
+}
+
+.button{
+    margin-top: 20px;
+    position: absolute;
+    right: 12rem;
+    top: 2rem;
+    line-height: 2rem;
+    border-radius: 5px;
+    border-color: 1px solid #90EE90;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.325rem 2rem;
+    border-color:#90EE90;
+    
+}
+.button:hover{
+    background-color: #90EE90;
+}

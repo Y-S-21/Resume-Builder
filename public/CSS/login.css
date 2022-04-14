@@ -1,0 +1,61 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-image: -webkit-linear-gradient(65deg, #acd1af 50%, #EEEE9B 50%);
+  /* background-color: #90ee90 !important; */
+}
+
+button{
+    background-color: #FFE61B !important;
+    color: black !important;
+    border-color: #FFB72B !important;
+}
+
+button:hover{
+    background-color: #FFB72B !important;
+}
+
+.navbar{
+  background-color: #90ee90 !important;
+}
+
+.errorText{
+  color: red;
+  font-size: 12px;
+}
+
+.form-signin {
+    background-color: #ffffff;
+  width: 100%;
+  max-width: 370px;
+  padding: 20px;
+  margin: auto;
+  border-radius: 20px;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

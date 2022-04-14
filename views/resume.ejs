@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="css/resume.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <button class="button" id="download">download</button>
+    <i class="fa-thin fa-xmark-large"></i>
+    <div id="invoice">
+        <div style="width: 95%;">
+            <div>
+                <img src='data:<%= finalImg.contentType %>;base64,<%= finalImg.imageBase64 %>' alt="" style="margin-left: 5px; height: 140px; width: 130px;display: inline-block;">
+                <div style="margin-left: 10rem; text-align: center;text-align: left;display: inline-block;" class="personalDetails">
+                    <b style="margin-left:5px;"><%= details.fname %></b> <b style="margin-left:5px;"><%= details.lname %> </b><br>
+                    <b style="margin-left:5px;"><%= academics.clgCourse %> </b><br>
+                    <b style="font-weight: normal; margin-left:5px;"><%= details.phno %> </b><br>
+                    <a href="#"><b style="font-weight: normal; margin-left:5px;"><%= details.email %> </b></a><br>
+                    <a href="#"><b style="font-weight: normal; margin-left:5px;"><%= details.email2 %> </b></a><br>
+                    <a href="ln"><b style="font-weight: normal; margin-left:5px;"><%= details.ln %> </b></a><br>
+                    <a href="github"><b style="font-weight: normal; margin-left:5px;"><%= details.github %> </b></a>
+                </div>
+                <img src="IMAGES/college.JPG" alt="college" style="position: absolute; right: 2rem;height: 140px; width: 150px;">
+            </div>
+    
+            <div class="careerObjective indent">
+                <h3>CAREER OBJECTIVE</h3>
+                <p><%= extra.careerObj %> </p>
+            </div>
+    
+            <div class="softwareProficiency indent">
+                <h3>SOFTWARE PROFICIENCY</h3>
+                <table class="noBorder">
+                    <tr>
+                        <td class="noBorder"><b>Programming languages</b></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= academics.progLang %> </b></td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder"><b>Web Technologies</b></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= academics.webTech %> </b></td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder"><b>Databases</b></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= academics.DB %> </b></td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder"><b>IDE</b></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= academics.IDE %> </b></td>
+                    </tr>
+                </table>
+            </div>
+    
+            <% if (academics.certificate[0] !== "" ) { %>
+            <div class="certifications indent">
+                <h3>CERTIFICATIONS  </h3>
+                 
+                    <% for( let index = 0; index < academics.certificate.length; index++ ) { %>
+                        <ul>
+                            <li><%= academics.certificate[index] %> </li>
+                        </ul>
+                    <% } %>
+                </ul>
+            </div>
+            <% } %>
+    
+            <% if (academics.areaOfInterest[0] !== "" ) { %>
+            <div class="areasOfInterest indent">
+                <h3>AREAS OF INTEREST   </h3>
+                <% for( let index = 0; index < academics.areaOfInterest.length; index++ ) { %>
+                    <ul>
+                        <li><%= academics.areaOfInterest[index] %> </li>
+                    </ul>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (projects.projTitle[0] !== "" ) { %>
+            <div class="projectsUndertaken indent">
+                <h3>PROJECTS UNDERTAKEN</h3>
+                <b style="text-decoration: underline;margin-left: 20px;">Projects:</b>
+                
+                <% for( let index = 0; index < projects.projTitle.length; index++ ) { %>
+                    <table class="noBorder">
+                        <tr>
+                            <td class="noBorder"><b>Project title:</b></td>
+                            <td class="noBorder"><b style=" margin-left:5px;"><%= projects.projTitle[index] %></b></td>
+                        </tr>
+                        <tr>
+                            <td class="noBorder">Duration:</td>
+                            <td class="noBorder"><b style="font-weight: normal; margin-left:5px;"><%= projects.duration[index] %></b> </td>
+                        </tr>
+                        <tr>
+                            <td class="noBorder">Stack:</td>
+                            <td class="noBorder"><b style="font-weight: normal; margin-left:5px;"><%= projects.stack[index] %> </b></td>
+                        </tr>
+                        <tr>
+                            <td class="noBorder">Objective:</td>
+                            <td class="noBorder"><b style="font-weight: normal; margin-left:5px;"><%= projects.objective[index] %></b> </td>
+                        </tr>
+                        <tr>
+                            <td class="noBorder">Github Link:</td>
+                            <td class="noBorder"><a href=""><b style="font-weight: normal; margin-left:5px;"><%= projects.githubLink[index] %></b> </a></td>
+                        </tr>
+                    </table>
+                    <br>
+        
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (projects.inplantCompany[0] !== "" ) { %>
+            <div class="implant/iv indent">
+                <h3>IMPLANT TRAINING/INDUSTRIAL VISITS</h3>
+                <% for( let index = 0; index < projects.inplantCompany.length; index++ ) { %>
+                    <table class="noBorder">
+                        <tr><td class="noBorder"><b>Inplant Training  <%= index+1 %> </b></td></tr>
+                        <tr><td class="noBorder">Name of the Company</td><td class="noBorder">:&nbsp;<%= projects.inplantCompany[index] %> </td></tr>
+                        <tr><td class="noBorder">Duration</td><td class="noBorder">:&nbsp;<%= projects.inplantDuration[index] %> </td></tr>
+                        <tr><td class="noBorder">Objective</td><td class="noBorder">:&nbsp;<%= projects.inplantObjective[index] %> </td></tr>
+                    </table>
+                    <br>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (projects.internCompany[0] !== "" ) { %>
+            <div class="internships">
+                <h3>INTERNSHIPS</h3>
+                <% for( let index = 0; index < projects.internCompany.length; index++ ) { %>
+                    <table class="noBorder">
+                        <tr><td class="noBorder"><b>Internship  <%= index+1 %> </b> </td></tr>
+                        <tr><td class="noBorder">Name of the Company</td><td class="noBorder">:&nbsp;<%= projects.internCompany[index] %> </td></tr>
+                        <tr><td class="noBorder">Duration</td><td class="noBorder">:&nbsp;<%= projects.internObjective[index] %> </td></tr>
+                        <tr><td class="noBorder">Objective</td><td class="noBorder">:&nbsp;<%= projects.internObjective[index] %> </td></tr>
+                    </table>
+                    <br>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (extra.achievements[0] !== "" ) { %>
+            <div class="achievements indent">
+                <h3>ACCOLADES/ACHIEVEMENTS</h3>
+                <% for( let index = 0; index < extra.achievements.length; index++ ) { %>
+                    <ul>
+                        <li><%= extra.achievements[index] %> </li>
+                    </ul>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (extra.coCurEvent[0] !== "" ) { %>
+            <div class="co-curricular indent">
+                <h3>CO - CURRICULAR ACTIVITIES</h3>
+                <% for( let index = 0; index < extra.coCurEvent.length; index++ ) { %>
+                    <table class="noBorder">
+                        <tr><td class="noBorder"><b>Event <%= index+1 %>  </b></td></tr>
+                        <tr><td class="noBorder">Name of the Event</td><td class="noBorder">:&nbsp;<%= extra.coCurEvent[index] %> </td></tr>
+                        <tr><td class="noBorder">College Name</td><td class="noBorder">:&nbsp;<%= extra.coCurClgName[index] %> </td></tr>
+                        <tr><td class="noBorder">Date</td><td class="noBorder">:&nbsp;<%= extra.coCurDate[index] %> </td></tr>
+                        <tr><td class="noBorder">Topic</td><td class="noBorder">:&nbsp;<%= extra.coCurTopic[index] %> </td></tr>
+                    </table>
+                    <br>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (extra.extraEvent[0] !== "" ) { %>
+            <div class="extra indent">
+                <h3>EXTRA-CURRICULAR ACTIVITIES</h3>
+                <% for( let index = 0; index < extra.extraEvent.length; index++ ) { %>
+                    <table class="noBorder">
+                        <tr><td class="noBorder">Name of the Event</td><td class="noBorder">:&nbsp;<%= extra.extraEvent[index] %> </td></tr>
+                        <tr><td class="noBorder">College Name</td><td class="noBorder">:&nbsp;<%= extra.extraClgName[index] %> </td></tr>
+                        <tr><td class="noBorder">Date</td><td class="noBorder">:&nbsp;<%= extra.extraDate[index] %> </td></tr>
+                    </table>
+                    <br>
+                <% } %>
+            </div>
+            <% } %>
+
+            <% if (extra.keyStrength[0] !== "" ) { %>
+            <div class="keyStrengnth indent">
+                <h3>KEY STRENGTHS</h3>
+                <% for( let index = 0; index < extra.keyStrength.length; index++ ) { %>
+                    <ul>
+                        <li><%= extra.keyStrength[index] %> </li>
+                    </ul>    
+                <% } %>
+            </div>
+            <% } %>
+
+            <div class="academicCredentials indent">
+                <h3>ACADEMIC CREDENTIALS</h3>
+                <table class="textCenter" style="width: 95%;">
+                    <tr>
+                        <th>Course</th>
+                        <th>Name of Institution</th>
+                        <th>University/Board</th>
+                        <th>Year of Passing</th>
+                        <th>CGPA/%</th>
+                    <tr>
+                        <td><%= academics.clgCourse %> </td>
+                        <td><%= academics.clgName %> </td>
+                        <td><%= academics.clgBoard %> </td>
+                        <td><%= academics.clgYearPassing %> </td>
+                        <td><%= academics.clgCgpa %> </td>
+                    </tr>
+                    <tr>
+                        <td>HSC</td>
+                        <td><%= academics.hscName %> </td>
+                        <td><%= academics.hscBoard %> </td>
+                        <td><%= academics.hscYearPassing %> </td>
+                        <td><%= academics.hscCgpa %> </td>
+                    </tr>
+                    <tr>
+                        <td>SSLC</td>
+                        <td><%= academics.sslcName %> </td>
+                        <td><%= academics.sslcBoard %> </td>
+                        <td><%= academics.sslcYearPassing %> </td>
+                        <td><%= academics.sslcCgpa %> </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="personalDetails indent">
+                <h3>PERSONAL DETAILS</h3>
+                <table class="noBorder">
+                    <tr>
+                        <td class="noBorder">Date of Birth</td>
+                        <td class="noBorder"></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.dob %></b> </td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder">Gender</td>
+                        <td class="noBorder"></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.gender %></b> </td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder">Father's Name</td>
+                        <td class="noBorder"></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.father %></b> </td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder">Languages known</td>
+                        <td class="noBorder" style="text-align:center"><b>Speak</b></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.langSpeak %></b> </td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder"></td>
+                        <td class="noBorder"><b>Read & Write</b></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.langSR %></b> </td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder">Nationality</td>
+                        <td class="noBorder"></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.nationality %></b> </td>
+                    </tr>
+                    <% if(details.passport != null){ %>
+
+                        <tr>
+                            <td class="noBorder">Passport Number</td>
+                            <td class="noBorder"></td>
+                            <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.passport %> </b></td>
+                        </tr>
+                        
+                    <% } %> 
+                    <tr>
+                        <td class="noBorder">Mobility</td>
+                        <td class="noBorder"></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.mobility %> </b></td>
+                    </tr>
+                    <tr>
+                        <td class="noBorder">Address for Communication</td>
+                        <td class="noBorder"></td>
+                        <td class="noBorder">:<b style="font-weight: normal; margin-left:5px;"><%= details.address %> </b></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="declaration  indent">
+                <h3>DECLARATION</h3>
+                <p><%= declaration %> </p>
+            </div>
+
+        </div>
+        <div>
+            <b style="font-weight: normal; margin-left:5px;">Date:<%= thedate %> </b>
+        </div>
+        <div style="text-align: right;margin-right: 3rem;">
+            <b><%= details.fname %></b> <b ><%= details.lname %> </b>
+        </div>
+
+        
+    </div>
+
+    <script type="text/javascript">
+        window.onload = function(){
+            document.getElementById('download').addEventListener('click',()=>{
+                const invoice = this.document.getElementById('invoice');
+                console.log(invoice);
+                console.log(window);
+                var opt = {
+                    margin: 0.5,
+                    margintop: 10,
+                    filename:     'resume.pdf',
+                    image:        { type: 'A4', quality: 0.98 },
+                    html2canvas:  { scale: 1 },
+                    jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().from(invoice).set(opt).save();
+            })
+        }
+    </script>
+    
+<%- include("partials/footer") -%>
